@@ -10,6 +10,12 @@ COMPOSITOR='picom'
 # we can make windows mono via shader
 SHADER="${XDG_DATA_HOME:-${HOME}/.local/share/}/picom/gray.glsl"
 
+# wp symlink location
+WP="${XDG_DATA_HOME:-${HOME}/.local/share/}/wp"
+
+# gray wp dir
+GRAY_DIR="${XDG_CACHE_HOME:-${HOME}/.cache/}/dots/gray/"
+
 start() {
     # get mode stored in cache
     # 0 means mono
@@ -33,6 +39,9 @@ toggle() {
         $(kill ${shader_id} && \
         sleep 1             && \
         ${COMPOSITOR} -b --backend glx) || return 1
+        rm -rf "${GRAY_DIR}"
+        mv "${WP}.bak" "${WP}"
+        feh --no-fehbg --bg-scale "${WP}"
         mode=1
     # shader disabled, meaning color
     # DISABLE COLOR
@@ -41,6 +50,17 @@ toggle() {
         $(kill ${comp_id}                                                        && \
         sleep 1                                                                  && \
         ${COMPOSITOR} -b --backend glx --window-shader-fg="${SHADER}" 2>/dev/null) || return 1
+        # follow symlink to get actual wp location
+        wp="$(symlink.sh "${WP}")"
+        # get extension of wp
+        ext="${wp##*.}"
+        # new filename for gray wallpaper
+        gray="${GRAY_DIR}/$(basename "${wp%.*}-gray.${ext}")"
+        mkdir "${GRAY_DIR}"
+        magick "${wp}" -colorspace Gray "${gray}" >/dev/null 2>&1
+        cp -a "${WP}" "${WP}.bak"
+        ln -sf "${gray}" "${WP}"
+        feh --no-fehbg --bg-scale "${WP}"
         mode=0
     fi
 

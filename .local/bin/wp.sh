@@ -11,6 +11,10 @@ COLORS="${XDG_CACHE_HOME:-${HOME}/.cache/}/wal/colors.sh"
 DEFAULTFG=259
 # xresources handles suckless vars
 XRESOURCES="${XDG_CONFIG_HOME:-${HOME}/.config/}/x/xresources"
+# file holding system color state
+COLOR="${XDG_CACHE_HOME:-${HOME}/.cache/}/dots/color"
+# gray wp dir
+GRAY_DIR="${XDG_CACHE_HOME:-${HOME}/.cache/}/dots/gray/"
 
 # get random valid file in dir
 get_rand_file() {
@@ -71,8 +75,27 @@ check_file () {
 }
 
 wp () {
-    # create wp sym link
-    ln -sf "${file}" "${WP}"
+    # get system color state (0 = grayscale, 1 = rgb)
+    mode="$(cat "${COLOR}")"
+
+    # rgb
+    if [ "${mode}" -eq 1 ]; then
+        # create wp sym link as normal
+        ln -sf "${file}" "${WP}"
+    else
+        # gen grayscale wp
+        ext="${file##*.}"
+        gray="${GRAY_DIR}/$(basename "${file%.*}-gray.${ext}")"
+        if [ -e "${GRAY_DIR}" ]; then
+            rm -rf "${GRAY_DIR}"
+            mkdir "${GRAY_DIR}"
+        fi
+        magick "${file}" -colorspace Gray "${gray}" >/dev/null 2>&1
+
+        # use grayscale wp as normal symlink and color wp as bak
+        ln -sf "${gray}" "${WP}"
+        ln -sf "${file}" "${WP}.bak"
+    fi
 
     # change bg
     feh --no-fehbg --bg-scale "${WP}"
