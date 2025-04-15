@@ -20,13 +20,23 @@ set message_cachedir = "${XDG_CACHE_HOME}/mutt/mail/bodies"
 set mime_forward     = 'yes'
 set pager_stop       = 'yes'
 set quit             = 'ask-yes'
-set recall           = 'no'
+set recall           = 'yes'
 set sleep_time       = 0
 set smart_wrap       = 'yes'
 set sort             = threads
 set sort_aux         = reverse-last-date-received
 set strict_threads   = 'yes'
 set text_flowed      = 'yes'
+
+# encrypt
+set crypt_use_gpgme   = 'yes'
+set postpone_encrypt  = 'yes'
+set pgp_self_encrypt  = 'yes'
+set crypt_use_pka     = 'no'
+set crypt_autosign    = 'yes'
+set crypt_autoencrypt = 'no'
+set crypt_autopgp     = 'yes'
+set pgp_default_key   = 'F550EED0A4B50300F670F18D24B7BABBDA2BC739'
 
 # bind
 bind index,pager B   sidebar-toggle-visible
