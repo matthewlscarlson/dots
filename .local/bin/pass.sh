@@ -51,6 +51,7 @@ main() {
                               done
                               break
                               ;;
+                'recovery')   printf 'Recovery\n'          ;;
             esac
         done
         printf '%s\n' "${credential_options}" ))"
@@ -67,6 +68,7 @@ main() {
             'Password')                 get_credential 'pw'            ;;
             'Email')                    get_credential 'email'         ;;
             "Security Question ${num}") get_credential "sanswer${num}" ;;
+            'Recovery')                 get_credential 'recovery'      ;;
         esac
 
         if printf '%s\n' "${credential}" | xclip -selection clipboard; then { herbe "${credential_option} for "${site}" copied to clipboard" & } ; fi
