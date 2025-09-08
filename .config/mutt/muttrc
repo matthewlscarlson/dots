@@ -86,7 +86,9 @@ set sidebar_width           = '25'
 
 # source
 source "gpg -dq ${XDG_DATA_HOME}/mutt/passwords.gpg |"
-source "${XDG_CONFIG_HOME}/mutt/algomaurc"
-folder-hook $folder 'source ${XDG_CONFIG_HOME}/mutt/algomaurc'
+# UPDATE: My Algoma University Gmail account was shut down on 26 June 2025.
+# TODO: Make offline mbsync folders browsable.
+# source "${XDG_CONFIG_HOME}/mutt/algomaurc"
+# folder-hook $folder 'source ${XDG_CONFIG_HOME}/mutt/algomaurc'
 source "${XDG_CONFIG_HOME}/mutt/mattrc"
 folder-hook $folder 'source ${XDG_CONFIG_HOME}/mutt/mattrc'

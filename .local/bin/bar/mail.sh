@@ -7,7 +7,8 @@ GET_ICON=''
 ISYNCRC="${XDG_CONFIG_HOME:-${HOME}/.config/}/isync/isyncrc"
 # both personal and school mail
 PERSONAL_MAIL_DIR="${MAIL_DIR}/matt/INBOX/new/"
-SCHOOL_MAIL_DIR="${MAIL_DIR}/algomau/INBOX/new/"
+# UPDATE: shut down on 26 june 2025, no need to sync
+# SCHOOL_MAIL_DIR="${MAIL_DIR}/algomau/INBOX/new/"
 TMP='/tmp/get-mail'
 
 # count mail files in dir
@@ -35,10 +36,11 @@ open() {
 }
 
 bar() {
+    # UPDATE: just counting personal email now, since no new emails will be coming to my school email account
     # count personal and school mail then sum together
     personal_mail_count=$(count_mail "${PERSONAL_MAIL_DIR}"/*)
-    school_mail_count=$(count_mail "${SCHOOL_MAIL_DIR}"/*)
-    total_mail_count=$((personal_mail_count + school_mail_count))
+    # school_mail_count=$(count_mail "${SCHOOL_MAIL_DIR}"/*)
+    total_mail_count=${personal_mail_count}
 
     # if getting mail show get icon
     [ -f "${TMP}" ] && printf '%s\n' "${GET_ICON}" && return
