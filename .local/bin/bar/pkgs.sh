@@ -105,7 +105,7 @@ get_pkgs() {
                 pacman_pkgs="$(pacman -Qu 2>/dev/null | grep -v '^.*\[ignored\]$')"
                 if command -v "${AUR_HELPER}" >/dev/null; then
                     # print just AUR upgrades with AUR helper
-                    aur_pkgs="$("${AUR_HELPER}" -Qum --devel 2>/dev/null)"
+                    aur_pkgs="$("${AUR_HELPER}" -Qum --devel 2>/dev/null | grep -v '^.*\[ignored\]$')"
                 fi
 
                 pkgs="$(printf '%s\n' "${pacman_pkgs}")"
