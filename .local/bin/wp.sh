@@ -98,7 +98,7 @@ wp () {
     fi
 
     # change bg
-    feh --no-fehbg --bg-scale "${WP}"
+    xwallpaper --zoom "${WP}"
 
     # theme iff pywal installed
     command -v wal >/dev/null && theme

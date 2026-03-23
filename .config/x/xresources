@@ -77,6 +77,15 @@ herbe.pos_y            : 44
 herbe.corner           : 3
 herbe.duration         : 5
 
+! nsxiv
+Nsxiv.bar.font          : monospace:size=16
+Nsxiv.bar.background    : col2
+Nsxiv.bar.foreground    : col0
+Nsxiv.mark.foreground   : col2
+Nsxiv.window.alpha      : 0.95
+Nsxiv.window.background : col0
+Nsxiv.window.foreground : col2
+
 ! slock
 slock.init        : col0
 slock.input       : col4

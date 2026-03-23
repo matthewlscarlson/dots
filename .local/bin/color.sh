@@ -41,7 +41,7 @@ toggle() {
         ${COMPOSITOR} -b --backend glx) || return 1
         rm -rf "${GRAY_DIR}"
         mv "${WP}.bak" "${WP}"
-        feh --no-fehbg --bg-scale "${WP}"
+        xwallpaper --zoom "${WP}"
         mode=1
     # shader disabled, meaning color
     # DISABLE COLOR
@@ -60,7 +60,7 @@ toggle() {
         magick "${wp}" -colorspace Gray "${gray}" >/dev/null 2>&1
         cp -a "${WP}" "${WP}.bak"
         ln -sf "${gray}" "${WP}"
-        feh --no-fehbg --bg-scale "${WP}"
+        xwallpaper --zoom "${WP}"
         mode=0
     fi
 

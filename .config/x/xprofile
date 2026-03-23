@@ -6,7 +6,7 @@ xrandr --output "${MONITOR}" --mode 1920x1080 --rate 144 --brightness 0.5
 "${HOME}/.local/bin/color.sh" -s # picom is compositor; touch blank config file to make picom like xcompmgr
 xrdb "${XDG_CONFIG_HOME:-${HOME}/.config/}/x/xresources"
 "${HOME}/.local/bin/lock.sh" &
-feh --no-fehbg --bg-scale "${XDG_DATA_HOME:-${HOME}/.local/share/}/wp"
+xwallpaper --zoom "${XDG_DATA_HOME:-${HOME}/.local/share/}/wp"
 xclickroot -r "${HOME}/.local/bin/menu.sh" &
 mpd &
 transmission-daemon &
