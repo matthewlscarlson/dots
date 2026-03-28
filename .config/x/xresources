@@ -1,20 +1,20 @@
 ! colors
-#define col0 #090c09
-#define col1 #636655
-#define col2 #8a6938
-#define col3 #8a7657
-#define col4 #76857d
-#define col5 #988f6e
-#define col6 #c2ac5e
-#define col7 #c7c7bf
-#define col8 #8b8b85
-#define col9 #636655
-#define col10 #8a6938
-#define col11 #8a7657
-#define col12 #76857d
-#define col13 #988f6e
-#define col14 #c2ac5e
-#define col15 #c7c7bf
+#define col0 #000000
+#define col1 #ff0000
+#define col2 #737680
+#define col3 #0d0d0d
+#define col4 #ffffff
+#define col5 #ffffff
+#define col6 #ffffff
+#define col7 #ffffff
+#define col8 #ffffff
+#define col9 #ffffff
+#define col10 #ffffff
+#define col11 #ffffff
+#define col12 #ffffff
+#define col13 #ffffff
+#define col14 #ffffff
+#define col15 #ffffff
 
 ! font
 Xft.antialias : 1
@@ -40,10 +40,10 @@ dwm.nmaster         : 1
 dwm.resizehints     : 0
 dwm.mfact           : 0.50
 dwm.swallowfloating : 0
-dwm.gappih          : 15
-dwm.gappiv          : 15
-dwm.gappoh          : 15
-dwm.gappov          : 15
+dwm.gappih          : 0
+dwm.gappiv          : 0
+dwm.gappoh          : 0
+dwm.gappov          : 0
 dwm.vertpad         : 0
 dwm.sidepad         : 0
 dwm.smartgaps       : 0
@@ -72,8 +72,8 @@ herbe.line_spacing     : 5
 herbe.padding          : 5
 herbe.width            : 297
 herbe.border_size      : 3
-herbe.pos_x            : 15
-herbe.pos_y            : 44
+herbe.pos_x            : 0
+herbe.pos_y            : 29
 herbe.corner           : 3
 herbe.duration         : 5
 
@@ -82,15 +82,15 @@ Nsxiv.bar.font          : monospace:size=16
 Nsxiv.bar.background    : col2
 Nsxiv.bar.foreground    : col0
 Nsxiv.mark.foreground   : col2
-Nsxiv.window.alpha      : 0.95
+Nsxiv.window.alpha      : 1
 Nsxiv.window.background : col0
 Nsxiv.window.foreground : col2
 
 ! slock
 slock.init        : col0
-slock.input       : col4
+slock.input       : col2
 slock.failed      : col1
-slock.caps        : col2
+slock.caps        : col3
 slock.failonclear : 1
 slock.message     : Type password to unlock
 slock.text_color  : col7
@@ -135,8 +135,8 @@ st.cursorthickness    : 2
 st.boxdraw            : 1
 st.boxdraw_bold       : 1
 st.boxdraw_braille    : 1
-st.alpha              : 0.95
-st.alphaUnfocused     : 0.90
+st.alpha              : 1
+st.alphaUnfocused     : 1
 st.defaultfg          : 15
 st.defaultbg          : 258
 st.defaultcs          : 256
