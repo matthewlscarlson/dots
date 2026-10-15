@@ -2,7 +2,7 @@
 #
 # xprofile
 
-xrandr --output "${MONITOR}" --mode 1920x1080 --rate 144 --brightness 0.5
+autorandr both
 "${HOME}/.local/bin/color.sh" -s # picom is compositor; touch blank config file to make picom like xcompmgr
 xrdb "${XDG_CONFIG_HOME:-${HOME}/.config/}/x/xresources"
 "${HOME}/.local/bin/lock.sh" &
